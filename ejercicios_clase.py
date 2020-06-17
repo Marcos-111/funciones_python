@@ -16,14 +16,25 @@ __email__ = "alumnos@inove.com.ar"
 __version__ = "1.1"
 
 import random
+import math
+
+from funciones import promedio
+from funciones import lista_aleatoria
+from funciones import ordenar2
+from funciones import contar
+from funciones import buscar
+
 
 
 def ej1():
     # Ejercicios con funciones del sistema
-    numeros = [2, 4, 6, 8, 10, 12]
+    numeros = [4, 4, 6, 8, 3]
+    p = promedio(numeros)
+    print("el promedio es: ",p)
 
-    '''
-    Realice una funcion llamada "promedio" la cual
+
+'''
+      Realice una funcion llamada "promedio" la cual
     reciba como parámetro una lista de números y calcule
     el promedio de ella como:
     promedio = sumatoria_numeros / cantidad_numeros
@@ -44,13 +55,13 @@ def ej1():
 
 def ej2():
     # Ejercicios con modulos del sistema
-    inicio = 0
-    fin = 10
+    #inicio = 0
+    #fin = 10
 
     # Ejemplo de como obtener un numero aleatorio
     # entre inicio y fin
     # inicio <= numero <= fin
-    numero = random.randrange(inicio, fin+1)
+    #numero = random.randrange(inicio, fin+1)
     # Documentación oficial de random
     # https://docs.python.org/3.7/library/random.html
 
@@ -63,16 +74,19 @@ def ej2():
 
     Dicha función debe retornar la lista de elementos random generados.
     '''
+    lista = range(0,30)
+    k = 6
+    numeros = lista_aleatoria (lista, k)
 
-    # numeros = lista_aleatoria (inicio, fin, cantidad)
+    print(numeros)
 
     # Imprima en pantalla la lista de elementos generados
     # print(....)
 
     # Utilice el método random.choice para obtener 2 numeros
     # de la lista de elementos generados
-    # numero_1 = random.choice(...)
-    # numero_2 = random.choice(...)
+    numero_1 = random.choice(numeros)
+    numero_2 = random.choice(numeros)
 
     # Importar en este programa/documento el modulo "math"
     # Calcular la raiz cuadrada (square root) de esos
@@ -83,15 +97,23 @@ def ej2():
     # NOTA: Puede buscar en el medio que prefiera la info
     # solicitada
 
-    # raiz_cuadrada_1 = ....
-    # raiz_cuadrada_2 = ....
+    raiz_cuadrada_1 = math.sqrt(numero_1)
+    raiz_cuadrada_2 = math.sqrt(numero_2) 
+
+    print(raiz_cuadrada_1)
+    print(raiz_cuadrada_2)
 
 
 def ej3():
     # Ejercicios de listas y métodos
-    numeros = [2, 4, 6, 8, 10, 12]
+    numeros = [13, 4, 45, 8, 10, 12]
+
+    ordenar2(numeros)
+
+    
 
     '''
+
     Generar una una nueva funcion que se llame "ordenar",
     que utilizaremos para odernar la lista de numeros.
     Dentro de la función puede ordenar la lista
@@ -106,8 +128,18 @@ def ej3():
 
 def ej4():
     # Ejercicios de listas y métodos
-    cantidad_numeros = 5
+    k = 5
 
+    lista = range(1,10)
+    numeros = lista_aleatoria (lista, k)
+    condicion = True
+    
+    while condicion:
+        numero = int(input("Ingrese el numero a verificar repeticiones:\n"))
+        repeticiones = contar(numeros, numero)
+        print(repeticiones)
+    
+    
     '''
     Utilice la función "lista_aleatoria" para generar
     una lista de 5 números en un rango de 1 a 9 inclusive
@@ -128,9 +160,25 @@ def ej4():
 
 def ej5():
     # Ejercicios de listas y métodos
-    cantidad_numeros = 5
-
+    
+    k = 5
+    lista = range(1,10)
+    numeros = lista_aleatoria (lista, k)
+    condicion = True
+    
+    while condicion:
+        numero = int(input("Ingrese el numero a verificar indice/s:\n"))
+        
+        index = buscar(numeros, numero)
+        print("el indice de ",numero,"es",index)
+       
+    
+    
+    
+    
+    
     '''
+
     Utilice la función "lista_aleatoria" para generar
     una lista de 5 números en un rango de 1 a 9 inclusive
 
@@ -154,7 +202,9 @@ def ej5():
 if __name__ == '__main__':
     print("Bienvenidos a otra clase de Inove con Python")
     ej1()
-    #ej2()
-    #ej3()
+    ej2()
+    ej3()
     #ej4()
-    #ej5()
+    ej5()
+
+
