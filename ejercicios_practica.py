@@ -15,6 +15,20 @@ __author__ = "Inove Coding School"
 __email__ = "alumnos@inove.com.ar"
 __version__ = "1.1"
 
+import math
+import statistics
+from random import shuffle
+
+
+from funciones import promedio
+from funciones import lista_aleatoria
+from funciones import buscar
+from funciones import contar
+from funciones import lista_aleatoria2
+from funciones import ordenar2
+
+fact = []
+
 
 def ej1():
     print('Comencemos a crear lo nuestro!')
@@ -38,6 +52,19 @@ def ej1():
 def ej2():
     print("Jugando a los dados")
 
+    numeros = lista_aleatoria2 (1, 6, 5)
+    
+    numeros_orden2 = ordenar2(numeros)
+    print(numeros_orden2)
+    
+
+    shuffle(numeros_orden2)
+    print(numeros_orden2)
+
+    k = 3
+    tres_valores = lista_aleatoria(numeros_orden2, k) 
+    print(tres_valores)
+   
     '''
     Un dado común tiene 6 caras, 6 resultados posibles
     1 - 2 - 3 - 4 - 5 - 6
@@ -63,10 +90,35 @@ def ej2():
     Imprima en pantalla dicha lista de 3 valores.
     '''
 
+def factorial (numero):
+    
+    if numero > 0:
+        z = numero * (numero - 1)
+        fact.append(z)
+        numero -= 1
+        factorial(numero)
+        f = sum(fact)
+        return f
+        
+
+
+
+  
+    
 
 def ej3():
+    
     print("Dominando la recursividad")
+    numero = int(input("Ingrese numero a calcular factorial: "))
+    f = factorial (numero)
+    print(f)
 
+    
+
+
+    
+    
+    
     '''
     En este ejercicio se deberá plantear el calculo del
     factorial de un número utilizando recursividad
@@ -96,9 +148,11 @@ def ej3():
     '''
 
 
+
 def ej4():
     print("Un pequeño paso en la estadística, un gran paso en Python")
 
+    
     '''
     Lo primero que se solicita es utilizar la función "lista_aleatoria"
     para generar una lista de 20 elementos, en un rango del 0 al 100 inclusive
@@ -133,6 +187,29 @@ def ej4():
     '''
     # Mi implementación de desvió estandar a continuación:
 
+    sumatoria = []
+    
+    lista = lista_aleatoria2 (0, 100, 20)
+    media = promedio(lista)
+    media2 = round(media)
+    for numero in lista:
+        x = (numero - media2)**2
+        x_abs = abs(x)
+        sumatoria.append(x_abs)
+
+    suma = sum(sumatoria)
+
+    s = suma/len(lista)
+
+    desv_est = math.sqrt(s)
+    print(desv_est)
+
+    y = statistics.mean(lista)
+    print(y)
+    z = statistics.stdev(lista)
+    print(z)
+
+
     '''
     Ahora que han terminado, importe el módulo "statistics" y realice
     los mismos calculos utilizando los metodos del módulo para verificar
@@ -144,6 +221,60 @@ def ej4():
 
 def ej5():
     print("Ahora sí! buena suerte :)")
+
+    dados_guardados = []
+    dados_para_tirar = []
+    
+    numeros = lista_aleatoria2 (1, 6, 5)
+
+    numero_max = max(numeros, key=numeros.count)
+    print(numero_max)
+
+    for numero in numeros:
+            if numero == numero_max:
+                dados_guardados.append(numero)
+            
+            else:
+                dados_para_tirar.append(numero)
+
+    
+    
+   
+   
+    while dados_guardados != [numero_max, numero_max, numero_max, numero_max, numero_max]:
+        dados_para_tirar2 = []
+        numeros2 = lista_aleatoria2 (1, 6, len(dados_para_tirar))
+        
+        for numero in numeros2:
+            if numero == numero_max:
+                dados_guardados.append(numero)
+                print(dados_guardados)
+
+            else:
+                dados_para_tirar2.append(numero)
+    
+        dados_para_tirar2 = []
+
+
+    print(dados_guardados)
+
+
+
+
+    
+
+
+
+           
+
+    
+           
+
+    
+
+
+
+
 
     '''
     Este ejercicio representa ya un problema que forma parte de un juego
@@ -196,6 +327,6 @@ if __name__ == '__main__':
     print("Ejercicios de práctica")
     #ej1()
     #ej2()
-    #ej3()
+    ej3()
     #ej4()
     #ej5()
