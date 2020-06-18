@@ -34,7 +34,8 @@ def lista_aleatoria2 (minimo, maximo, longitud):
 
     
     for i in range(longitud):
-        lista.append(random.randint(1,6))
+        lista.append(random.randint(1,6))  # Inove: Creemos que acá hay un typo
+        #lista.append(random.randint(minimo,maximo))
     
     return lista
 
