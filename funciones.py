@@ -34,8 +34,7 @@ def lista_aleatoria2 (minimo, maximo, longitud):
 
     
     for i in range(longitud):
-        lista.append(random.randint(1,6))  # Inove: Creemos que acá hay un typo
-        #lista.append(random.randint(minimo,maximo))
+        lista.append(random.randint(minimo,maximo))  
     
     return lista
 
@@ -55,12 +54,33 @@ def contar (numeros, numero):
     
 
 def buscar (numeros, numero):
-    
-    if numero in numeros:
-        index = numeros.index(numero)
+    index = []
+    if numero not in numeros:
+        print(index)
+    elif numero in numeros:
+        
+        indice = numeros.index(numero)
+        index.append(indice)
         return index
-    else:
-        print("error")
+
+def buscar2 (numeros, numero):
+
+    indices = []
+    indice_offset = 0
+    while True:
+        
+        try:
+            indice = numeros.index(numero, indice_offset)
+            indice_offset = indice + 1
+            indices.append(indice)
+        
+        except:
+            
+            break
+
+    return indices
+        
+            
 
 
     
