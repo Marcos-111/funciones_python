@@ -23,6 +23,8 @@ from funciones import lista_aleatoria
 from funciones import ordenar2
 from funciones import contar
 from funciones import buscar
+from funciones import lista_aleatoria2
+from funciones import buscar2
 
 
 
@@ -128,10 +130,8 @@ def ej3():
 
 def ej4():
     # Ejercicios de listas y métodos
-    k = 5
-
-    lista = range(1,10)
-    numeros = lista_aleatoria (lista, k)
+    
+    numeros = lista_aleatoria2 (1, 9, 5)
     condicion = True
     
     while condicion:
@@ -161,16 +161,16 @@ def ej4():
 def ej5():
     # Ejercicios de listas y métodos
     
-    k = 5
-    lista = range(1,10)
-    numeros = lista_aleatoria (lista, k)
+    
+    numeros = lista_aleatoria2(1, 9, 5)
     condicion = True
     
     while condicion:
         numero = int(input("Ingrese el numero a verificar indice/s:\n"))
         
-        index = buscar(numeros, numero)
-        print("el indice de ",numero,"es",index)
+        indices = buscar2(numeros, numero)
+        print(indices)
+        
        
     
     
@@ -201,9 +201,9 @@ def ej5():
 
 if __name__ == '__main__':
     print("Bienvenidos a otra clase de Inove con Python")
-    ej1()
-    ej2()
-    ej3()
+    #ej1()
+    #ej2()
+    #ej3()
     #ej4()
     ej5()
 
